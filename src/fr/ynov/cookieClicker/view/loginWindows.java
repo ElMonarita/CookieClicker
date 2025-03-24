@@ -9,7 +9,7 @@ public class loginWindows {
     static JTextField words = new JTextField(10);
     static JButton button = new JButton("Start");
     static JPanel panel = new JPanel();
-    static String PlayerName;
+    public static String pseudo;
 
     public static void FrameWindows() {
         frame.setSize(400, 200);
@@ -21,7 +21,9 @@ public class loginWindows {
     public static void ButtonWindows() {
         button.setSize(40, 40);
         button.addActionListener(e -> {
+            pseudo = words.getText();
             frame.setVisible(false);
+            frame.dispose();
         });
     }
     public static void PanelWindows() {
