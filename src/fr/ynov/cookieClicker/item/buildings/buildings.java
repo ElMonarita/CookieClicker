@@ -21,6 +21,9 @@ public class buildings extends item {
     public void IncreaseGainCookie() {
         this.GainCookie = this.GainCookie * this.quantity;
     }
+    public int getQuantity() {
+        return quantity;
+    }
 
     public void setNbrCookie() {
         this.nbrCookie += this.GainCookie;

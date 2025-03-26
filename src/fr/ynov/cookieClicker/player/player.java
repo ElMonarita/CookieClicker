@@ -10,15 +10,26 @@ public class player {
         this.gainCookiePerSec = gainCookiePerSec;
         this.cookieMonney = cookieMonney;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void updateGainCookiePerSec(int cookieClick, int cookieBuildings) {
-        this.gainCookiePerSec = cookieClick + cookieBuildings;
+    public void increaseCookieMoney(int cookieClick) {
+        this.cookieMonney += cookieClick;
     }
-
+    public boolean possibilityPurchase(int cookieClick) {
+        if (this.cookieMonney >= cookieClick) {
+            return true;
+        }
+        return false;
+    }
+    public void purchaseItems (int price){
+        this.cookieMonney -= price;
+    }
     public int getCookieMonney() {
         return this.cookieMonney;
     }
