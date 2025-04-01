@@ -5,8 +5,21 @@ import fr.ynov.cookieClicker.item.buildings.buildings;
 import fr.ynov.cookieClicker.item.upgradeClick.upgradeClick;
 import fr.ynov.cookieClicker.player.player;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JPanel;
+import javax.swing.BorderFactory;
+
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.GridBagLayout;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Color;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -154,7 +167,7 @@ public class game {
         panelClickCookie.setLayout(new FlowLayout(FlowLayout.CENTER));
         panelClickCookie.add(button1);
         panelClickCookie.setBorder(BorderFactory.createLineBorder(Color.white));
-        panelShop.add(label, SwingConstants.CENTER);
+        panelShop.add(label);
         panelShop.setBorder(BorderFactory.createLineBorder(Color.white));
         panelBuilding.add(label2);
         panelBuilding.add(button3);
