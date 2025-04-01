@@ -23,6 +23,15 @@ import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Represents a part of the famous game Cookie Clicker with simple functionalities.
+ * I use the principles of OOP to make it easier to distribute certain examples.
+ *
+ * @author BORDES Rémy
+ * @version 1.0
+ * @since Java 21
+ */
+
 public class game {
 
     public static void main(String[] args) {
