@@ -11,7 +11,7 @@ public class item {
         this.nameItems = nameItems;
     }
     public void IncreaseGainCookie() {
-        this.GainCookie = (int) Math.floor(this.GainCookie + (this.GainCookie * (30.0 /100)));
+        this.GainCookie = this.GainCookie+10;
     }
     public int getGainCookie() {
         return GainCookie;
@@ -25,4 +25,5 @@ public class item {
     public void IncreasePrice() {
         this.price = this.price * 2;
     }
+
 }

@@ -13,5 +13,8 @@ public class upgradeClick extends item {
     public void IncreaseLevel() {
         this.level++;
     }
+    public int getLevel() {
+        return this.level;
+    }
 
 }
