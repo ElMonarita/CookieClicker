@@ -1,17 +1,17 @@
 package fr.ynov.cookieClicker.item.upgradeClick;
 
-import fr.ynov.cookieClicker.item.item;
+import fr.ynov.cookieClicker.item.Item;
 
 /**
  * Represents an upgrade for the click action in the Cookie Clicker game.
- * This class extends {@link item} and adds a leveling system.
+ * This class extends {@link Item} and adds a leveling system.
  *
  * @author BORDES Rémy
  * @version 1.0
  * @since Java 21
  */
 
-public class upgradeClick extends item {
+public class UpgradeClick extends Item {
 
     /** The current level of the upgrade. */
     private int level;
@@ -24,7 +24,7 @@ public class upgradeClick extends item {
      * @param GainCookie The number of cookies gained per click.
      * @param nameItems The name of the upgrade item.
      */
-    public upgradeClick(final int level, int price, int GainCookie, String nameItems) {
+    public UpgradeClick(final int level, int price, int GainCookie, String nameItems) {
         super(price, GainCookie, nameItems);
         this.level = level;
     }

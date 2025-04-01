@@ -1,17 +1,17 @@
 package fr.ynov.cookieClicker.item.buildings;
 
-import fr.ynov.cookieClicker.item.item;
+import fr.ynov.cookieClicker.item.Item;
 
 /**
  * Represents a building in the Cookie Clicker game.
  * Buildings generate cookies over time and can be purchased in quantities.
- * This class extends {@link item}.
+ * This class extends {@link Item}.
  *
  * @author BORDES Rémy
  * @version 1.0
  * @since Java 21
  */
-public class buildings extends item {
+public class Buildings extends Item {
 
     /** The number of buildings owned by the player. */
     private int quantity;
@@ -24,7 +24,7 @@ public class buildings extends item {
      * @param GainCookie The number of cookies generated per building.
      * @param nameItems The name of the building.
      */
-    public buildings(int quantity, int price, int GainCookie, String nameItems) {
+    public Buildings(int quantity, int price, int GainCookie, String nameItems) {
         super(price, GainCookie, nameItems);
         this.quantity = quantity;
     }
@@ -38,7 +38,7 @@ public class buildings extends item {
 
     /**
      * Increases the total cookie generation by multiplying it with the number of buildings owned.
-     * Overrides {@link item#IncreaseGainCookie()}.
+     * Overrides {@link Item#IncreaseGainCookie()}.
      */
     @Override
     public void IncreaseGainCookie() {
@@ -47,7 +47,7 @@ public class buildings extends item {
 
     /**
      * Gets the total number of cookies generated per second based on the number of buildings owned.
-     * Overrides {@link item#getGainCookie()}.
+     * Overrides {@link Item#getGainCookie()}.
      *
      * @return The total cookies generated.
      */

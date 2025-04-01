@@ -1,9 +1,9 @@
 package fr.ynov.cookieClicker.game;
 
-import fr.ynov.cookieClicker.cookie.cookie;
-import fr.ynov.cookieClicker.item.buildings.buildings;
-import fr.ynov.cookieClicker.item.upgradeClick.upgradeClick;
-import fr.ynov.cookieClicker.player.player;
+import fr.ynov.cookieClicker.cookie.Cookie;
+import fr.ynov.cookieClicker.item.buildings.Buildings;
+import fr.ynov.cookieClicker.item.upgradeClick.UpgradeClick;
+import fr.ynov.cookieClicker.player.Player;
 
 import javax.swing.JLabel;
 import javax.swing.JFrame;
@@ -32,31 +32,31 @@ import java.util.TimerTask;
  * @since Java 21
  */
 
-public class game {
+public class Game {
 
-    public static void main(String[] args) {
+    public static void game() {
         //System.out.println("Welcome to Ynov Cookie Clicker");
-        cookie cookies = new cookie(1);
-        player player = new player("Zeldo", 0, 0);
-        buildings autoclick = new buildings(0, 10, 1, "AutoClick");
-        buildings mamie = new buildings(0, 20, 5, "Mamie");
-        buildings mineCookie = new buildings(0, 30, 10, "MineCookie");
-        upgradeClick upgrade = new upgradeClick(0, 10, 1, "UpgradeClick");
+        Cookie cookies = new Cookie(1);
+        Player player = new Player("Zeldo", 0, 0);
+        Buildings autoclick = new Buildings(0, 10, 1, "AutoClick");
+        Buildings mamie = new Buildings(0, 20, 5, "Mamie");
+        Buildings mineCookie = new Buildings(0, 30, 10, "MineCookie");
+        UpgradeClick upgrade = new UpgradeClick(0, 10, 1, "UpgradeClick");
         ImageIcon icon = new ImageIcon("src\\fr\\ynov\\cookieClicker\\images\\icon.jpg");
         Image scaledImage = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(scaledImage);
-        JFrame frame = new JFrame("Choose Name Player");
+        JFrame frame = new JFrame("Selection du Pseudo");
         JFrame frame1 = new JFrame("Cookie Clicker");
         JLabel label = new JLabel();
         JLabel label2 = new JLabel();
         JLabel labelPlayer = new JLabel();
         JTextField words = new JTextField(10);
         JButton button = new JButton("Start");
-        JButton button1 = new JButton("Click Me");
-        JButton button2 = new JButton("Buy AutoClick for : "+ autoclick.getPrice() + " Cookoin");
-        JButton button3 = new JButton("Buy GrandMa for : "+ mamie.getPrice() + " Cookoin");
-        JButton button4 = new JButton("Buy MineCookie for : "+ mineCookie.getPrice() + " Cookoin");
-        JButton button5 = new JButton("Buy UpgradeClick for : "+ upgrade.getPrice() + " Cookoin");
+        JButton button1 = new JButton("Clique");
+        JButton button2 = new JButton("Achete un autoclick pour : "+ autoclick.getPrice() + " Cookoin");
+        JButton button3 = new JButton("Achete une Grand-mere pour : "+ mamie.getPrice() + " Cookoin");
+        JButton button4 = new JButton("Achete une Mine pour : "+ mineCookie.getPrice() + " Cookoin");
+        JButton button5 = new JButton("Achete une ameliorations de click pour : "+ upgrade.getPrice() + " Cookoin");
         JPanel panel = new JPanel();
         JPanel panelShop = new JPanel();
         JPanel panelClickCookie = new JPanel();
@@ -104,15 +104,15 @@ public class game {
                 player.purchaseItems(autoclick.getPrice());
                 autoclick.IncreaseQuantity();
                 autoclick.IncreasePrice();
-                button2.setText("Buy AutoClick for : "+ autoclick.getPrice() + " Cookoin");
-                label2.setText("You success");
+                button2.setText("Achete un autoclick pour : "+ autoclick.getPrice() + " Cookoin");
+                label2.setText("Vous avez réussi");
                 String[] texte = {player.getName()+", voici vos Stat : ", "vous avez ramasser : "+ player.getCookieMonney() +" Cookoins", "Vous avez : " + mineCookie.getQuantity() +" mineCookies",
                         "Vous avez : " + mamie.getQuantity() +" mamies", "Vous avez : " + autoclick.getQuantity() +" autoclicks",
                         "Vous etes : " + upgrade.getLevel() +" Lvl for click", "Vous avez : " + player.getGainCookiePerSec() +" de Cookoins par seconde"
                 };
                 label.setText("<html>" + String.join("<br>", texte) + "</html>");
             }else {
-                label2.setText("Erreur buy");
+                label2.setText("Vous n'avez pas assez");
             }
         });
         button3.setSize(40, 40);
@@ -121,15 +121,15 @@ public class game {
                 player.purchaseItems(mamie.getPrice());
                 mamie.IncreaseQuantity();
                 mamie.IncreasePrice();
-                button3.setText("Buy GrandMa for : "+ mamie.getPrice() + " Cookoin");
-                label2.setText("You success");
-                String[] texte = {player.getName()+", voici vos Stat : ", "vous avez ramasser : "+ player.getCookieMonney() +" Cookoins", "Vous avez : " + mineCookie.getQuantity() +" mineCookies",
+                button3.setText("Achete une Grand-mere pour : "+ mamie.getPrice() + " Cookoin");
+                label2.setText("Vous avez réussi");
+                String[] texte = {player.getName()+", voici vos Stat : ", "vous avez ramasser : "+ player.getCookieMonney() +" Cookoins", "Vous avez : " + mineCookie.getQuantity() +" mines",
                         "Vous avez : " + mamie.getQuantity() +" mamies", "Vous avez : " + autoclick.getQuantity() +" autoclicks",
                         "Vous etes : " + upgrade.getLevel() +" Lvl for click", "Vous avez : " + player.getGainCookiePerSec() +" de Cookoins par seconde"
                 };
                 label.setText("<html>" + String.join("<br>", texte) + "</html>");
             }else {
-                label2.setText("Erreur buy");
+                label2.setText("Vous n'avez pas assez");
             }
         });
         button4.setSize(40, 40);
@@ -138,15 +138,17 @@ public class game {
                 player.purchaseItems(mineCookie.getPrice());
                 mineCookie.IncreaseQuantity();
                 mineCookie.IncreasePrice();
-                button4.setText("Buy MineCookie for : "+ mineCookie.getPrice() + " Cookoin");
-                label2.setText("You success");
+                button4.setText("Achete une Mine pour : "+ mineCookie.getPrice() + " Cookoin");
+                label2.setText("Vous avez réussi");
+
                 String[] texte = {player.getName()+", voici vos Stat : ", "vous avez ramasser : "+ player.getCookieMonney() +" Cookoins", "Vous avez : " + mineCookie.getQuantity() +" mineCookies",
                         "Vous avez : " + mamie.getQuantity() +" mamies", "Vous avez : " + autoclick.getQuantity() +" autoclicks",
                         "Vous etes : " + upgrade.getLevel() +" Lvl for click", "Vous avez : " + player.getGainCookiePerSec() +" de Cookoins par seconde"
                 };
                 label.setText("<html>" + String.join("<br>", texte) + "</html>");
             }else {
-                label2.setText("Erreur buy");
+                label2.setText("Vous n'avez pas assez");
+
             }
         });
 
@@ -158,15 +160,15 @@ public class game {
                 upgrade.IncreaseLevel();
                 upgrade.IncreasePrice();
                 upgrade.IncreaseGainCookie();
-                button5.setText("Buy UpgradeClick for : "+ upgrade.getPrice() + " Cookoin");
-                label2.setText("You success");
+                button5.setText("Achete une ameliorations de click pour : "+ upgrade.getPrice() + " Cookoin");
+                label2.setText("Vous avez réussi");
                 String[] texte = {player.getName()+", voici vos Stat : ", "vous avez ramasser : "+ player.getCookieMonney() +" Cookoins", "Vous avez : " + mineCookie.getQuantity() +" mineCookies",
                         "Vous avez : " + mamie.getQuantity() +" mamies", "Vous avez : " + autoclick.getQuantity() +" autoclicks",
                         "Vous etes : " + upgrade.getLevel() +" Lvl for click", "Vous avez : " + player.getGainCookiePerSec() +" de Cookoins par seconde"
                 };
                 label.setText("<html>" + String.join("<br>", texte) + "</html>");
             }else {
-                label2.setText("Erreur buy");
+                label2.setText("Vous n'avez pas assez");
             }
         });
 

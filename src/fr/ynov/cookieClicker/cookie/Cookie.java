@@ -8,7 +8,7 @@ package fr.ynov.cookieClicker.cookie;
  * @version 1.0
  * @since Java 21
  */
-public class cookie {
+public class Cookie {
 
     /** The number of cookies gained per click. */
     private int gainClick;
@@ -18,7 +18,7 @@ public class cookie {
      *
      * @param gainClick The number of cookies earned per click.
      */
-    public cookie(final int gainClick) {
+    public Cookie(final int gainClick) {
         this.gainClick = gainClick;
     }
 

@@ -8,7 +8,7 @@ package fr.ynov.cookieClicker.player;
  * @version 1.0
  * @since Java 21
  */
-public class player {
+public class Player {
 
     /** The name of the player. */
     private String name;
@@ -26,7 +26,7 @@ public class player {
      * @param gainCookiePerSec The number of cookies the player gains per second.
      * @param cookieMonney The initial amount of cookies the player has.
      */
-    public player(String name, int gainCookiePerSec, int cookieMonney) {
+    public Player(String name, int gainCookiePerSec, int cookieMonney) {
         this.name = name;
         this.gainCookiePerSec = gainCookiePerSec;
         this.cookieMonney = cookieMonney;
