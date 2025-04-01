@@ -20,6 +20,9 @@ public class game {
         buildings mamie = new buildings(0, 20, 5, "Mamie");
         buildings mineCookie = new buildings(0, 30, 10, "MineCookie");
         upgradeClick upgrade = new upgradeClick(0, 10, 1, "UpgradeClick");
+        ImageIcon icon = new ImageIcon("src\\fr\\ynov\\cookieClicker\\images\\icon.jpg");
+        Image scaledImage = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(scaledImage);
         JFrame frame = new JFrame("Choose Name Player");
         JFrame frame1 = new JFrame("Cookie Clicker");
         JLabel label = new JLabel();
@@ -42,10 +45,12 @@ public class game {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-        frame1.setSize(1000, 600);
+        frame.setIconImage(icon.getImage());
+        frame1.setSize(1000, 200);
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame1.setResizable(false);
+        frame1.setResizable(false);
         frame1.setLocationRelativeTo(null);
+        frame1.setIconImage(icon.getImage());
 
         //label.setForeground(Color.WHITE);
         label.setFont(new Font("Arial", Font.BOLD, 10));
@@ -59,6 +64,7 @@ public class game {
             frame1.setVisible(true);
         });
         button1.setSize(40, 40);
+        button1.setIcon(resizedIcon);
         button1.setLayout(new GridBagLayout());
         button1.addActionListener(e -> {
             player.increaseCookieMoney(cookies.getGainClick());
@@ -121,6 +127,7 @@ public class game {
                 label2.setText("Erreur buy");
             }
         });
+
         button5.setSize(40, 40);
         button5.addActionListener(e -> {
             if (player.possibilityPurchase(upgrade.getPrice())) {
@@ -146,24 +153,14 @@ public class game {
         panel.add(button);
         panelClickCookie.setLayout(new FlowLayout(FlowLayout.CENTER));
         panelClickCookie.add(button1);
-        //panelClickCookie.setBackground(Color.black);
         panelClickCookie.setBorder(BorderFactory.createLineBorder(Color.white));
         panelShop.add(label, SwingConstants.CENTER);
-        //panelShop.setBackground(Color.red);
         panelShop.setBorder(BorderFactory.createLineBorder(Color.white));
-        panelBuilding.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridy = GridBagConstraints.RELATIVE;
-        gbc.weightx = 1;
-        gbc.weighty = 1;
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(10, 10, 10, 10);
         panelBuilding.add(label2);
-        panelBuilding.add(button3, gbc);
-        panelBuilding.add(button4, gbc);
-        panelBuilding.add(button5, gbc);
-        panelBuilding.add(button2, gbc);
-        //panelBuilding.setBackground(Color.yellow);
+        panelBuilding.add(button3);
+        panelBuilding.add(button4);
+        panelBuilding.add(button5);
+        panelBuilding.add(button2);
         panelBuilding.setBorder(BorderFactory.createLineBorder(Color.white));
 
         frame.add(panel, BorderLayout.CENTER);
