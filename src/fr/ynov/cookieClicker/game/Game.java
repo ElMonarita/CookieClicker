@@ -76,7 +76,7 @@ public class Game {
 
         //label.setForeground(Color.WHITE);
         label.setFont(new Font("Arial", Font.BOLD, 10));
-        labelPlayer.setText("Choose Name Player : ");
+        labelPlayer.setText("Choisissez votre pseudo : ");
         labelPlayer.setFont(new Font("Arial", Font.BOLD, 10));
 
         button.setSize(40, 40);
